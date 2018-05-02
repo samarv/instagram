@@ -3,6 +3,8 @@ import dummyData from './dummy-data';
 import logo from './logo.svg';
 import './App.css';
 
+import PostContainer from './components/PostContainer/PostContainer'
+
 
 
 
@@ -28,6 +30,11 @@ class App extends Component {
   }
 
   render() {
+    let x = [];
+    for(let i =0; i < dummyData.length; i++){
+      x.push(<PostContainer key={i} boo={dummyData[i]} />)
+    }
+    return x;
     return (
       <div className="App">
         <header className="App-header">
@@ -38,7 +45,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div>
-          <postContainer boo = {this.state.users} />
+          {/* {dummyData.map( (x, i) => <PostContainer key={i} boo={x} />)} */}
+          {x}
         </div>
 
       </div>
